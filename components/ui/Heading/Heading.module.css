@@ -1,0 +1,17 @@
+.heading {
+  font-weight: 400;
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+}
+
+.primary {
+  font-size: 50px;
+}
+
+.secondary {
+  font-size: 35px;
+}
+
+.tertiary {
+  font-size: 20px;
+}

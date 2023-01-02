@@ -1,0 +1,37 @@
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.count {
+  font-size: 9px;
+}
+
+.price {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+}
+
+.cartInfo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+@media screen and (max-width: 500px) {
+  .links {
+    display: none;
+  }
+}
