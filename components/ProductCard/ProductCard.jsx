@@ -5,11 +5,8 @@ import Button from "../ui/Button/Button";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import ButtonCircle from "../ui/Button/ButtonCircle";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  increaseProductQuantity,
-  decreaseProductQuantity,
-  selectProductQuantity,
-} from "../../features/cartSlice";
+import { selectProductQuantity } from "../../features/cartSlice";
+import { addToCart, removeFromCart } from "../../features/cartThunks";
 
 export default function ProductCard({ product }) {
   const { title, price, metrics, description, id } = product;
@@ -19,19 +16,16 @@ export default function ProductCard({ product }) {
   const dispatch = useDispatch();
 
   const handleAddCount = () => {
-    dispatch(
-      increaseProductQuantity({
-        product: {
-          id,
-          title,
-          price,
-        },
-      })
-    );
+    const newProduct = {
+      id,
+      title,
+      price,
+    };
+    dispatch(addToCart(newProduct));
   };
 
   const handleRemoveCount = () => {
-    dispatch(decreaseProductQuantity(id));
+    dispatch(removeFromCart(id));
   };
 
   return (

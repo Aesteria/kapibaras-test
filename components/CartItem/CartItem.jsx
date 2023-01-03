@@ -2,10 +2,10 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
 import {
-  decreaseProductQuantity,
-  increaseProductQuantity,
-  removeProductFromCart,
-} from "../../features/cartSlice";
+  addToCart,
+  clearProductInCart,
+  removeFromCart,
+} from "../../features/cartThunks";
 import ButtonCircle from "../ui/Button/ButtonCircle";
 import styles from "./CartItem.module.css";
 
@@ -14,22 +14,20 @@ export default function CartItem({ item }) {
 
   const handleAddCount = () => {
     dispatch(
-      increaseProductQuantity({
-        product: {
-          id: item.id,
-          title: item.title,
-          price: item.price,
-        },
+      addToCart({
+        id: item.id,
+        title: item.title,
+        price: item.price,
       })
     );
   };
 
   const handleRemoveCount = () => {
-    dispatch(decreaseProductQuantity(item.id));
+    dispatch(removeFromCart(item.id));
   };
 
-  const handleDeleteOrder = () => {
-    dispatch(removeProductFromCart(item.id));
+  const handleClearProduct = () => {
+    dispatch(clearProductInCart(item.id));
   };
 
   return (
@@ -56,7 +54,7 @@ export default function CartItem({ item }) {
           <span className={styles.price}>{item.price * item.quantity}</span>руб
         </div>
       </div>
-      <XMarkIcon className={styles.close} onClick={handleDeleteOrder} />
+      <XMarkIcon className={styles.close} onClick={handleClearProduct} />
     </div>
   );
 }

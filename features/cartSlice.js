@@ -10,15 +10,15 @@ const cartSlice = createSlice({
   reducers: {
     increaseProductQuantity(state, action) {
       const existingProduct = state.items.find(
-        (item) => item.id === action.payload.product.id
+        (item) => item.id === action.payload.id
       );
       const existingProductIndex = state.items.findIndex(
-        (item) => item.id === action.payload.product.id
+        (item) => item.id === action.payload.id
       );
 
       if (!existingProduct) {
         state.items.push({
-          ...action.payload.product,
+          ...action.payload,
           quantity: 1,
         });
       } else {
@@ -26,7 +26,7 @@ const cartSlice = createSlice({
       }
 
       state.totalQuantity += 1;
-      state.totalPrice += action.payload.product.price;
+      state.totalPrice += action.payload.price;
     },
 
     decreaseProductQuantity(state, action) {
@@ -39,6 +39,7 @@ const cartSlice = createSlice({
 
       if (!existingProduct) {
         console.log("Something went wrong: decreaseProductQuantity");
+        return;
       }
 
       if (existingProduct.quantity === 1) {
@@ -51,13 +52,13 @@ const cartSlice = createSlice({
       state.totalPrice -= existingProduct.price;
     },
 
-    removeProductFromCart(state, action) {
+    clearProduct(state, action) {
       const existingProduct = state.items.find(
         (item) => item.id === action.payload
       );
 
       if (!existingProduct) {
-        console.log("Something went wrong: removeProductFromCart");
+        console.log("Something went wrong: clearProduct");
         return;
       }
 
@@ -65,13 +66,20 @@ const cartSlice = createSlice({
       state.totalQuantity -= existingProduct.quantity;
       state.items = state.items.filter((item) => item.id !== action.payload);
     },
+
+    fetchCart(state, action) {
+      state.items = action.payload.items;
+      state.totalPrice = action.payload.totalPrice;
+      state.totalQuantity = action.payload.totalQuantity;
+    },
   },
 });
 
 export const {
   increaseProductQuantity,
-  removeProductFromCart,
+  clearProduct,
   decreaseProductQuantity,
+  fetchCart,
 } = cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart.items;
