@@ -1,17 +1,28 @@
+import path from "path";
+import fsPromises from "fs/promises";
+
 import Container from "../components/Layout/Container/Container";
-import Header from "../components/Layout/Header/Header";
-import ProductCard from "../components/ProductCard/ProductCard";
 import Products from "../components/Products/Products";
-import Button from "../components/ui/Button/Button";
 import Heading from "../components/ui/Heading/Heading";
-import Logo from "../components/ui/Logo/Logo";
 import styles from "./HomePage.module.css";
 
-export default function HomePage() {
+export default function HomePage({ products }) {
   return (
     <Container className={styles.container}>
       <Heading type="primary">Роллы</Heading>
-      <Products />
+      <Products products={products} />
     </Container>
   );
+}
+
+export async function getStaticProps(context) {
+  const productsPath = path.resolve(process.cwd(), "data", "products.json");
+
+  const products = JSON.parse(await fsPromises.readFile(productsPath, "utf-8"));
+
+  return {
+    props: {
+      products,
+    },
+  };
 }

@@ -1,14 +1,12 @@
 import ProductCard from "../ProductCard/ProductCard";
-import Heading from "../ui/Heading/Heading";
 import styles from "./Products.module.css";
 
-export default function Products() {
+export default function Products({ products }) {
   return (
     <div className={styles.products}>
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 }

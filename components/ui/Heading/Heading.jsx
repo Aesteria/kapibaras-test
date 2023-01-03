@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import styles from "./Heading.module.css";
 
-export default function Heading({ children, type = "tertiary" }) {
-  let headingClass = clsx(styles.heading, styles[type]);
+export default function Heading({ children, type = "tertiary", className }) {
+  let headingClass = clsx(styles.heading, styles[type], className);
 
   if (type === "primary") {
     return <h1 className={headingClass}>{children}</h1>;

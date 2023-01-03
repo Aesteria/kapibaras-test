@@ -5,6 +5,8 @@
   padding: 40px;
   cursor: pointer;
   transition: box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -28,6 +30,10 @@
   color: var(--color-primary);
   font-size: 24px;
   font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 
 .price span {
@@ -35,21 +41,58 @@
   font-size: 18px;
 }
 
-.cardWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 35px;
-}
-
 .info {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 15px;
 }
 
 .cart {
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
+}
+
+.bottom {
+  display: flex;
+  margin-top: auto;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 102px;
+  height: 42px;
+}
+
+@media screen and (max-width: 650px) {
+  .card {
+    padding: 20px;
+  }
+
+  .cart {
+    flex-direction: column;
+  }
+
+  .metrics,
+  .description {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .price span {
+    font-weight: normal;
+    font-size: 12px;
+  }
 }

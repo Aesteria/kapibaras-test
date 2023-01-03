@@ -1,0 +1,36 @@
+.wrap {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  justify-content: flex-end;
+}
+
+.price {
+  color: var(--color-primary);
+}
+
+.text {
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+
+.total {
+  padding: 0 7px;
+  font-size: 40px;
+  letter-spacing: 0.03em;
+}
+
+@media screen and (max-width: 600px) {
+  .wrap {
+    flex-direction: column;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .total {
+    font-size: 22px;
+  }
+}

@@ -1,3 +1,11 @@
 .container {
   padding-top: 120px;
 }
+
+.empty {
+  text-align: center;
+}
+
+.emptyHeading {
+  margin-bottom: 25px;
+}

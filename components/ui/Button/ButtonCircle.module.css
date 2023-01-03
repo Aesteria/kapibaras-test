@@ -6,31 +6,26 @@
   font-size: 14px;
   outline: none;
   border: 1px solid transparent;
-  border-radius: 9999px;
+  border-radius: 50%;
   font-weight: 500;
   cursor: pointer;
-  background-color: var(--accent-color);
+  background-color: #f2f2f2;
   transition: 0.2s background-color ease;
 }
 
-.default {
-  padding: 16px 40px;
-}
-
-.large {
-  padding: 20px 60px;
-}
-
-.small {
-  padding: 10px 40px;
-}
-
-@media screen and (max-width: 650px) {
-  .small {
-    padding: 10px 20px;
-  }
-}
-
 .button:hover {
+  background-color: #b5b5b5;
+}
+
+.default {
+  width: 35px;
+  height: 35px;
+}
+
+.accent {
+  background-color: var(--accent-color);
+}
+
+.accent:hover {
   background-color: var(--accent-hover-color);
 }

@@ -2,20 +2,8 @@ import styles from "./Button.module.css";
 import clsx from "clsx";
 import Link from "next/link";
 
-export default function Button({
-  children,
-  type = "default",
-  isAccent,
-  onClick,
-  href,
-}) {
-  const buttonClass = clsx({
-    [styles.button]: true,
-    [styles.default]: type === "default",
-    [styles.product]: type === "product",
-    [styles.circle]: type === "circle",
-    [styles.accent]: isAccent,
-  });
+export default function Button({ children, size = "default", href, onClick }) {
+  const buttonClass = clsx(styles.button, styles[size]);
 
   if (href) {
     return (
