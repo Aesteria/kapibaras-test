@@ -7,6 +7,10 @@ import { useEffect } from "react";
 import { fetchCart } from "../features/cartSlice";
 import { getCartStateFromLocalStorage } from "../api/storage";
 
+import { Inter } from "@next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     const cartState = getCartStateFromLocalStorage();
@@ -17,6 +21,11 @@ export default function App({ Component, pageProps }) {
 
   return (
     <Provider store={store}>
+      <style jsx global>{`
+        html {
+          font-family: ${inter.style.fontFamily};
+        }
+      `}</style>
       <Layout>
         <main>
           <Component {...pageProps} />
