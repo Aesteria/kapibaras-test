@@ -13,7 +13,7 @@ export default function CartTotalPrice() {
         <strong className={styles.total}>{totalPrice}</strong>
         <span className={styles.currency}>руб.</span>
       </div>
-      <Button onClick={() => {}}>Заказать</Button>
+      <Button>Заказать</Button>
     </div>
   );
 }

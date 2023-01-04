@@ -37,6 +37,7 @@ export default function ProductCard({ product }) {
             width="450"
             height="450"
             alt="Sushi"
+            priority
           />
         </div>
         <Heading className={styles.title}>{title}</Heading>

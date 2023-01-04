@@ -22,6 +22,7 @@
 .links {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
 
 .cartInfo {
@@ -30,8 +31,14 @@
   gap: 15px;
 }
 
+.phone {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 500px) {
-  .links {
+  .email {
     display: none;
   }
 }

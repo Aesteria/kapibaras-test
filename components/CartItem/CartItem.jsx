@@ -8,6 +8,7 @@ import {
 } from "../../features/cartThunks";
 import ButtonCircle from "../ui/Button/ButtonCircle";
 import styles from "./CartItem.module.css";
+import CartImage from "../../public/assets/sushi.jpg";
 
 export default function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -33,13 +34,7 @@ export default function CartItem({ item }) {
   return (
     <div className={styles.item}>
       <div className={styles.wrap}>
-        <Image
-          className={styles.image}
-          height="120"
-          width="160"
-          alt="Sushi"
-          src="/assets/sushi.jpg"
-        />
+        <Image className={styles.image} alt="Sushi" src={CartImage} priority />
         <span className={styles.title}>{item.title}</span>
       </div>
       <div className={styles.wrap}>

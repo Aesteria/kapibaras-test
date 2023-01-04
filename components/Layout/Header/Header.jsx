@@ -5,7 +5,6 @@ import {
   selectTotalPrice,
   selectTotalQuantity,
 } from "../../../features/cartSlice";
-import Button from "../../ui/Button/Button";
 import ButtonCircle from "../../ui/Button/ButtonCircle";
 import Logo from "../../ui/Logo/Logo";
 import Container from "../Container/Container";
@@ -21,10 +20,18 @@ export default function Header() {
         <div className={styles.wrap}>
           <Logo />
           <div className={styles.links}>
-            <Link aria-label="Написать на email" href="mailto:help@example.com">
+            <Link
+              aria-label="Написать на email"
+              href="mailto:help@example.com"
+              className={styles.email}
+            >
               help@example.com
             </Link>
-            <Link aria-label="Позвонить на телефон" href="tel:55-65-65">
+            <Link
+              aria-label="Позвонить на телефон"
+              href="tel:55-65-65"
+              className={styles.phone}
+            >
               55-65-65
             </Link>
           </div>
