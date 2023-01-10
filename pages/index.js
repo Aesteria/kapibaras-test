@@ -15,7 +15,7 @@ export default function HomePage({ products }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   const productsPath = path.resolve(process.cwd(), "data", "products.json");
 
   const products = JSON.parse(await fsPromises.readFile(productsPath, "utf-8"));

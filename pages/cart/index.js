@@ -3,8 +3,7 @@ import Container from "../../components/Layout/Container/Container";
 import Heading from "../../components/ui/Heading/Heading";
 import CartItemList from "../../components/CartItemList/CartItemList";
 import CartTotalPrice from "../../components/CartTotalPrice/CartTotalPrice";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectCartItems } from "../../features/cartSlice";
 import Button from "../../components/ui/Button/Button";
 
