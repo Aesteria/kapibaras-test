@@ -38,7 +38,6 @@ const cartSlice = createSlice({
       );
 
       if (!existingProduct) {
-        console.log("Something went wrong: decreaseProductQuantity");
         return;
       }
 
@@ -58,7 +57,6 @@ const cartSlice = createSlice({
       );
 
       if (!existingProduct) {
-        console.log("Something went wrong: clearProduct");
         return;
       }
 

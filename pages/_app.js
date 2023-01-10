@@ -14,7 +14,6 @@ const inter = Inter({ subsets: ["latin"] });
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     const cartState = getCartStateFromLocalStorage();
-    console.log(cartState);
     if (cartState) {
       store.dispatch(fetchCart(cartState));
     }
